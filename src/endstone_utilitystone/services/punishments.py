@@ -76,12 +76,3 @@ class PunishmentService:
             source,
         )
 
-    def liftBan(self, name: str) -> bool:
-        banList = self.plugin.server.ban_list
-        if not banList.is_banned(name):
-            return False
-        banList.remove_ban(name)
-        return True
-
-    def isBanned(self, name: str) -> bool:
-        return self.plugin.server.ban_list.is_banned(name)

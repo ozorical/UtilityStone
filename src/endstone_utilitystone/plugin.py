@@ -173,20 +173,10 @@ class UtilityStone(Plugin):
             "usages": ["/broadcast <message: message>"],
             "permissions": ["utilitystone.command.broadcast"],
         },
-        "ban": {
-            "description": "Ban a player permanently.",
-            "usages": ["/ban <player: str> [reason: message]"],
-            "permissions": ["utilitystone.command.ban"],
-        },
         "tempban": {
-            "description": "Ban a player for a set length of time.",
+            "description": "Ban a player for a set time, or use perm to make it permanent.",
             "usages": ["/tempban <player: str> <duration: str> [reason: message]"],
             "permissions": ["utilitystone.command.tempban"],
-        },
-        "unban": {
-            "description": "Lift a ban.",
-            "usages": ["/unban <player: str>"],
-            "permissions": ["utilitystone.command.unban"],
         },
         "mute": {
             "description": "Stop a player from using chat.",
@@ -281,9 +271,7 @@ class UtilityStone(Plugin):
         "utilitystone.command.unignore": {"description": "Stop ignoring a player.", "default": True},
         "utilitystone.command.ignorelist": {"description": "List ignored players.", "default": True},
         "utilitystone.command.broadcast": {"description": "Broadcast a message.", "default": "op"},
-        "utilitystone.command.ban": {"description": "Ban a player.", "default": "op"},
         "utilitystone.command.tempban": {"description": "Temporarily ban a player.", "default": "op"},
-        "utilitystone.command.unban": {"description": "Lift a ban.", "default": "op"},
         "utilitystone.command.mute": {"description": "Mute a player.", "default": "op"},
         "utilitystone.command.unmute": {"description": "Unmute a player.", "default": "op"},
         "utilitystone.command.kit": {"description": "Claim a kit.", "default": True},

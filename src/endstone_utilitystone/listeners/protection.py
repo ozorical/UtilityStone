@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from endstone import Player
 from endstone.event import ActorDamageEvent, EventPriority, PlayerDeathEvent, event_handler
 

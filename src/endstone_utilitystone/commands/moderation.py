@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import math
-
 from endstone import ColorFormat
 
 from endstone_utilitystone.commands.base import CommandGroup
@@ -11,20 +9,10 @@ from endstone_utilitystone.util.durations import formatDuration, parseDuration
 class ModerationCommands(CommandGroup):
     def bindings(self) -> dict:
         return {
-            "ban": self.banPlayer,
             "tempban": self.tempBanPlayer,
-            "unban": self.unbanPlayer,
             "mute": self.mutePlayer,
             "unmute": self.unmutePlayer,
         }
-
-    def banPlayer(self, sender, args: list) -> bool:
-        if not args:
-            self.messages.failure(sender, "Usage: /ban <player> [reason]")
-            return True
-
-        reason = " ".join(args[1:]).strip() or "No reason given"
-        return self._applyBan(sender, args[0], math.inf, reason)
 
     def tempBanPlayer(self, sender, args: list) -> bool:
         if len(args) < 2:
@@ -33,7 +21,7 @@ class ModerationCommands(CommandGroup):
 
         seconds = parseDuration(args[1])
         if seconds is None:
-            self.messages.failure(sender, "That duration is not valid. Try something like 30m, 2h or 7d.")
+            self.messages.failure(sender, "That duration is not valid. Try 30m, 2h, 7d or perm.")
             return True
 
         reason = " ".join(args[2:]).strip() or "No reason given"
@@ -55,20 +43,6 @@ class ModerationCommands(CommandGroup):
 
         self.messages.success(sender, f"Banned {name} for {window}. Reason: {reason}")
         self.plugin.logger.info(f"{source} banned {name} for {window} ({reason})")
-        return True
-
-    def unbanPlayer(self, sender, args: list) -> bool:
-        if not args:
-            self.messages.failure(sender, "Usage: /unban <player>")
-            return True
-
-        name = args[0].strip().strip('"')
-        if not self.plugin.punishments.liftBan(name):
-            self.messages.failure(sender, f"{name} is not banned.")
-            return True
-
-        self.messages.success(sender, f"Lifted the ban on {name}.")
-        self.plugin.logger.info(f"{self.senderName(sender)} unbanned {name}")
         return True
 
     def mutePlayer(self, sender, args: list) -> bool:

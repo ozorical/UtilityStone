@@ -3,7 +3,7 @@ from __future__ import annotations
 import asyncio
 
 API_BASE = "https://discord.com/api/v10"
-USER_AGENT = "DiscordBot (https://github.com/ozz/utilitystone, 1.0.0)"
+USER_AGENT = "DiscordBot (https://github.com/ozorical/UtilityStone, 1.0.1)"
 NO_MENTIONS = {"parse": []}
 
 

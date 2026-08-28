@@ -4,6 +4,26 @@ All notable changes to UtilityStone are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-08-28
+
+Fixes found by running the plugin on a real Endstone server. Anyone on 1.0.0 should upgrade, because none of
+the event driven features worked on that release.
+
+### Fixed
+
+- Event handlers were never registered. The listener modules used `from __future__ import annotations`, which
+  turns every annotation into a string, and the Endstone plugin loader requires a real class object. All six
+  handlers were rejected at startup while the plugin still reported itself as ready. This broke join and quit
+  handling, chat delivery, mutes, ignore filtering, god mode, death tracking for `/back`, and the whole
+  Discord relay.
+- The Discord relay user agent pointed at a repository that does not exist and carried a stale version.
+
+### Removed
+
+- `/ban` and `/unban`. Bedrock already registers both, so the plugin could not claim the names. `/tempban`
+  covers timed bans and accepts `perm` for a permanent ban with a reason. Every ban still goes through the
+  server ban list, so vanilla `/unban` lifts them. The command count is now 40.
+
 ## [1.0.0] - 2026-08-28
 
 First release. Built against Endstone 0.11.9 and Minecraft Bedrock 26.44.

@@ -1,0 +1,16 @@
+UTILITYSTONE
+Essentials toolkit for Endstone servers, built to stay fast with fifty plus players.
+By Ozz. MIT licensed. Version 1.0.1.
+
+- 40 commands covering the full essentials toolkit, for Endstone 0.11 and Bedrock 26.44
+- Homes, warps and spawn, with home limits per rank and optional per warp permissions
+- Teleport requests with warmup, cooldown and expiry, plus /back to your last spot or death point
+- Player tools: heal, feed, fly, god, speed and repair, on yourself or on anyone else
+- Private messages, replies and a real ignore list that works on public chat as well as DMs
+- Timed bans and mutes with plain durations like 30m, 7d or perm, using the server's own ban list
+- Kits built straight from the config, with cooldowns, custom names, lore and enchantments
+- Optional two way Discord relay, chat flowing both ways, and never required to run the plugin
+- No per tick listeners, background batched saves and constant time lookups, so it will not lag
+- One wheel, no dependencies, one config file, and a live reload with no restart needed
+
+https://github.com/ozorical/UtilityStone

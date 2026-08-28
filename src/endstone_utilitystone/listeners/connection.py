@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from endstone.event import EventPriority, PlayerJoinEvent, PlayerQuitEvent, event_handler
 
 from endstone_utilitystone.util.text import colorize

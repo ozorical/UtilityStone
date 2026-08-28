@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "endstone-utilitystone"
-version = "1.0.0"
+version = "1.0.1"
 description = "Essentials style utility toolkit for Endstone servers, tuned for busy fifty player realms."
 readme = "README.md"
 requires-python = ">=3.10"

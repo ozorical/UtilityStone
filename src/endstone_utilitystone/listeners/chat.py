@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from endstone.event import EventPriority, PlayerChatEvent, PlayerCommandEvent, event_handler
 
 from endstone_utilitystone.util.durations import formatDuration

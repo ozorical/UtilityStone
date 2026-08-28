@@ -21,7 +21,7 @@ Endstone, so there is nothing extra to install.
 
 ## Installing
 
-1. Download or build `endstone_utilitystone-1.0.0-py3-none-any.whl`.
+1. Download or build `endstone_utilitystone-1.0.1-py3-none-any.whl`.
 2. Drop the wheel into your server `plugins` folder.
 3. Start the server. UtilityStone writes `plugins/utilitystone/config.toml` on first run.
 4. Edit the config if you want, then run `/utilitystone reload`.
@@ -98,14 +98,14 @@ Running any of these on somebody else needs the matching `.others` permission, f
 
 | Command | Permission | Default | What it does |
 | --- | --- | --- | --- |
-| `/ban <player> [reason]` | `utilitystone.command.ban` | operator | Bans a player for good. |
-| `/tempban <player> <duration> [reason]` | `utilitystone.command.tempban` | operator | Bans a player for a set length. |
-| `/unban <player>` | `utilitystone.command.unban` | operator | Lifts a ban. |
+| `/tempban <player> <duration> [reason]` | `utilitystone.command.tempban` | operator | Bans for a set length, or `perm` for good. |
 | `/mute <player> <duration> [reason]` | `utilitystone.command.mute` | operator | Blocks a player from chatting. |
 | `/unmute <player>` | `utilitystone.command.unmute` | operator | Lets a muted player chat again. |
 
-Bans go through the server ban list, so they survive restarts and work alongside anything else that reads it.
-Mutes are stored by UtilityStone and expire on their own.
+Bedrock already provides `/ban` and `/unban`, so UtilityStone does not replace them. `/tempban` adds the
+timed bans vanilla lacks, and accepts `perm` when you want a permanent ban with a reason attached. All of
+them write to the same server ban list, so vanilla `/unban` lifts a UtilityStone ban and the entries survive
+restarts. Mutes are stored by UtilityStone and expire on their own.
 
 Durations accept `30s`, `15m`, `2h`, `7d`, `3w`, `1mo`, `1y` and combinations such as `1d12h`. A bare number is
 read as minutes. Use `perm` or `forever` for something that never expires.
@@ -141,10 +141,11 @@ read as minutes. Use `perm` or `forever` for something that never expires.
 
 ## Commands that are deliberately missing
 
-Bedrock already ships `/kick`, `/list`, `/msg`, `/tell`, `/w` and `/tp`. UtilityStone does not register any of
-those names, because taking over a vanilla command is a good way to break the client side command tree for
-every player on the server. The replacements are `/who` for `/list` and `/pm` plus `/reply` for messaging.
-Kicking and coordinate teleports stay on the vanilla commands, which already work.
+Bedrock already ships `/kick`, `/list`, `/msg`, `/tell`, `/w`, `/tp`, `/ban` and `/unban`. UtilityStone does
+not register any of those names, because taking over a vanilla command is a good way to break the client side
+command tree for every player on the server. The replacements are `/who` for `/list` and `/pm` plus `/reply`
+for messaging. Kicking, coordinate teleports and permanent bans stay on the vanilla commands, which already
+work, and `/tempban` covers the timed bans vanilla does not offer.
 
 ## Configuration
 
