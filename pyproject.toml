@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "endstone-utilitystone"
+version = "1.0.0"
+description = "Essentials style utility toolkit for Endstone servers, tuned for busy fifty player realms."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Ozz" }]
+keywords = ["endstone", "minecraft", "bedrock", "essentials", "utility", "server"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Games/Entertainment",
+]
+
+[project.entry-points."endstone"]
+utilitystone = "endstone_utilitystone:UtilityStone"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/endstone_utilitystone"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/endstone_utilitystone", "README.md", "CHANGELOG.md", "LICENSE"]

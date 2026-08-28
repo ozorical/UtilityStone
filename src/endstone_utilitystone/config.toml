@@ -1,0 +1,78 @@
+[storage]
+saveIntervalSeconds = 30
+playtimeSyncSeconds = 120
+
+[messages]
+usePrefix = true
+prefix = "&8[&bUtilityStone&8]&r "
+
+[homes]
+defaultLimit = 3
+
+[homes.limits]
+"utilitystone.homes.vip" = 8
+"utilitystone.homes.staff" = 20
+
+[warps]
+requirePerWarpPermission = false
+
+[spawn]
+teleportOnFirstJoin = false
+
+[teleport]
+warmupSeconds = 3
+cooldownSeconds = 5
+requestTimeoutSeconds = 60
+cancelOnMove = true
+moveTolerance = 0.75
+pollTicks = 10
+rememberDeathLocation = true
+historySize = 5
+
+[chat]
+manageFormat = true
+format = "<{name}> {message}"
+afkTag = "&7[AFK] &r"
+
+[afk]
+enabled = true
+timeoutSeconds = 300
+sampleSeconds = 5
+announce = true
+
+[discord]
+enabled = true
+relayChat = true
+relayDeaths = true
+relayJoinLeave = true
+relayServerState = true
+sendIntervalSeconds = 1.5
+inboundPollTicks = 10
+maxInboundLength = 256
+chatFormat = "**{name}**: {message}"
+eventFormat = "_{message}_"
+inboundFormat = "&9[Discord] &b{name}&7: &f{message}"
+
+[connection]
+joinMessage = ""
+quitMessage = ""
+welcomeMessage = ""
+
+[kits.starter]
+cooldown = "24h"
+items = [
+    { type = "minecraft:stone_sword", amount = 1 },
+    { type = "minecraft:stone_pickaxe", amount = 1 },
+    { type = "minecraft:stone_axe", amount = 1 },
+    { type = "minecraft:bread", amount = 16 },
+    { type = "minecraft:torch", amount = 32 },
+]
+
+[kits.tools]
+permission = "utilitystone.kit.tools"
+cooldown = "7d"
+items = [
+    { type = "minecraft:diamond_pickaxe", amount = 1, name = "&bStone Cutter", enchants = { efficiency = 3, unbreaking = 2 } },
+    { type = "minecraft:diamond_axe", amount = 1 },
+    { type = "minecraft:diamond_shovel", amount = 1 },
+]

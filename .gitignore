@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.env
+.env.local
+.idea/
+.vscode/
+*.whl
+*.json.tmp
+*.json.broken
